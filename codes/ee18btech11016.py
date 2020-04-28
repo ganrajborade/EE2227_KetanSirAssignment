@@ -13,11 +13,15 @@ import subprocess
 import shlex
 #end if
 
+
+#coefficents of open loop transfer function
 num = [0,1,6,8]
 den = [1,-3,10,0]
 
 #Transfer function GH = num/den
 G = control.tf(num,den) 
+
+#plotting nyquist plot
 control.nyquist(G)
 
 plt.scatter(-1,0,s=60,color='r')
