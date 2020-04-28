@@ -8,6 +8,11 @@ Released under GNU GPL
 import control
 import matplotlib.pyplot as plt
 
+#if using termux
+import subprocess
+import shlex
+#end if
+
 num = [0,1,6,8]
 den = [1,-3,10,0]
 
@@ -29,3 +34,11 @@ plt.xlabel('Re(s) (Real Axis)')
 plt.ylabel('Im(s) (Imaginary Axis)')
 plt.grid(color='k',linestyle='--',linewidth=1)
 plt.show()
+
+
+#if using termux
+plt.savefig('./figs/ee18btech11016.pdf')
+plt.savefig('./figs/ee18btech11016.eps')
+subprocess.run(shlex.split("termux-open ./figs/ee18btech11016.pdf"))
+#else
+#plt.show()
